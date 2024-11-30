@@ -1,0 +1,17 @@
+# Ejemplo de inserción múltiple en una base de datos
+
+INSERT INTO servicios(nombre, precio)
+VALUES
+('Corte de Cabello Mujer', 90.00),
+('Corte de Cabello Hombre', 80.00),
+('Peinado de Mujer', 80.00),
+('Peinado de Hombre', 60.00),
+('Corte de Cabello Niño', 60.00),
+('Corte de Barba', 60.00),
+('Peinado de Mujer', 80.00),
+('Peinado de Hombre', 60.00),
+('Tinte', 300.00),
+('Uñas', 400.00),
+('Lavado de Cabello', 50.00),
+('Tratamiento capilar', 150.00)
+;
