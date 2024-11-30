@@ -1,0 +1,48 @@
+# includes/funciones.php
+
+function obtener_servicios(){
+        try {
+            // Importar las credenciales 
+            require 'database.php';
+
+            // Consulta SQL 
+            $sql = "SELECT * FROM servicios;";
+
+            // Realizar la consulta: variable de conexión, consulta
+            $consulta = mysqli_query($db, $sql);
+          
+            return $consulta;
+
+            // Cerrar la conexión 
+            mysqli_close($db);
+
+        } catch(\Throwable $th) {
+            var_dump($th);
+        }
+}
+
+# En donde se mostrarán los datos
+
+index.php
+
+require __DIR__ . './includes/funciones.php';
+
+$servicios = obtener_servicios();
+
+<?php
+    while($servicio = mysqli_fetch_assoc($servicios)) { ?>
+        <div class="servicio">
+            <p class="nombre-servicio"><?php echo $servicio['nombre'] ?></p>
+            <p class="precio-servicio"><?php echo $servicio['precio'] ?></p>
+        </div>
+<?php } ?>
+
+
+# Diferentes funciones para extraer datos
+
+mysqli_fetch_assoc($consulta); # Devuelve un resultado por el nombre de la columna
+mysqli_fetch_array($consulta); # Devuelve un resultado dentro de un arreglo
+mysqli_fetch_row($consulta); # Devuelve un resultado por el ínice 0, 1, etc
+mysqli_fetch_all($consulta); # Devuelve todos los resultados
+
+
